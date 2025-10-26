@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} preview page {% endblock %}
+
+{% block template %}
+<div class="main-container">
+    <a  href="{% url 'dashboard' %}"><button class="back-btn">back</button></a>
+    <div class="left-container">
+        <img class="img-view" src="{% static movie.poster %}" alt="">
+    </div>
+    <div class="right-container">
+        <div class="head">
+            <h1>{{movie.name}} </h1>
+        </div>
+        <div class="head-1">
+            <h2><span>Description </span> - {{movie.description}}</h2>
+        </div>
+        <div class="head-1">
+            <h2><span>Cast </span> - {{movie.cast}}</h2>
+        </div>
+        <div class="head-1">
+            <h2><span>Language </span> - {{movie.language}}</h2>
+        </div>
+        <div class="head-1">
+            <h2><span>Runtime </span> - {{movie.runtime}}</h2>
+        </div>
+        <!-- <div class="head-1">
+            <video src="{% static movie.trailer %}"></video>
+        </div> -->
+        {% if movie.status == 'soon' %}
+        <div class="btn-head">
+            <h2>Coming Soon</h2>
+        </div>
+        {% endif %}
+        {% if movie.status == 'in' %}
+        <div class="btn-head">
+            <a href="{% url 'bookingpage' movie.name %}"><button >Book Tickets</button></a>
+        </div> 
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

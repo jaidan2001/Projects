@@ -1,0 +1,601 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #c8c8c8;
+    color: black
+
+}
+
+.nav-container{
+    margin: auto;
+    width: 100%;
+    height: 11vh;
+    /* background-color:darkblue; */
+    background:#283965;
+    
+}
+
+nav{
+    color: white;
+   width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* position: fixed;     */
+    /* z-index:1; */
+    background-color: var(--clr-black);
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 11vh;
+   
+
+
+}
+nav a{
+    text-decoration: none;
+    color: rgb(245, 18, 18);
+}
+nav ul li{
+    list-style: none;
+    display: inline-block;
+}
+nav ul li a{
+    color: var(--clr-white);
+    font-size: 18px;
+    margin: 10px 20px;
+    /* position: relative; */
+}
+/* nav ul li a::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: var(--clr-red);
+    left: 0;
+    bottom: -6px;
+    transition-duration: 0.5s;
+
+}
+
+nav ul li a:hover::after{
+    width: 100%;
+}
+
+.nav-links{
+    margin-top: 15px;
+
+} */
+
+
+
+.not-clickable{
+    pointer-events: none;
+}
+
+h2{
+    font-size: 16px;
+}
+.dashboard{
+  height:fit-content ;
+}
+.search-bar{
+    padding: 2% 10%;
+    width: 100%;
+    height: 12vh;
+
+}
+
+.search_box{
+    border: none;
+    width:80%;
+    height: 5vh;
+    margin-left: 110px;
+    border-radius: 12px;
+    padding: 2px 15px;
+    font-size: 18px;
+    /* transition: transform .2s; */
+}
+/* .search_box:hover{
+    transform: scale(1.2);
+} */
+
+.search-btn{
+    height: 5vh;
+    width: 42px;
+    border: none;
+    border-radius: 50px;
+    margin-left: 5px;
+    transition: transform .2s;
+}
+.search-btn:hover{
+    transform: scale(1.5);
+    
+}
+
+.hr{
+	height:2px;
+	margin:0 0 0 0;
+	background:rgba(255,255,255,.2);
+}
+.mySlides {
+    display: none;}
+
+img {
+    vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin:auto;
+    /* margin-top: 10vh; */
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    
+    top: 80px;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+ .slide-img{
+    width: 100%;
+    height: 70vh;
+ }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  .projects{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap:40px;
+    margin: 50px 20px;
+
+}
+.released-movie{
+  margin: 80px 20px;
+}
+.project{
+    border-radius : 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.project img{
+    margin-bottom: 24px;
+    width: 100%;
+    height:65vh;
+    border-radius: 15px;
+    display: block;
+    transition: transform 0.5s;
+}
+
+
+.project:hover img{
+    transform: scale(1.1);
+}
+
+.main-container{
+    width: 100%;
+    padding: 10vh 5% 0 5%;
+    display: flex;
+
+}
+.main-container h1{
+    font-size: 50px;
+}
+
+.img-view{
+    width: 100%;
+    height: 100%;
+}
+
+.left-container{
+    
+    width: 35%;
+    height: 70vh;
+    background-color: #283965;
+}
+.right-container{
+    width: 70%;
+   
+    padding: 0 0 0 6vh;
+}
+.head{
+    margin: 0 0 3vh 0;
+}
+.head-1{
+    margin: 2vh 0;
+}
+h2 span{
+    font-size: 22px;
+    color: grey;
+}
+h2{
+    font-size: 20px;
+}
+.btn-head{
+    margin-left:300px;
+    margin-top: 14vh
+}
+
+.btn-head button{
+    width: 180px;
+    height: 6vh;
+    color: white;
+    background-color: rgb(255, 0, 0);
+    border: 0;
+    font-size: 16px;
+
+}
+.btn-head button:hover{
+    background-color: #bbb;
+    color: black;
+}
+.h1-booking-H{
+    font-size: 50px;
+}
+.cont{
+    display: flex;
+    flex-direction: column;
+
+}
+.header-today{
+    padding: 20px 0 30px 0;
+    display: flex;
+
+}
+#date{
+    width: 200px;
+    height: 5vh;
+    margin-left: 15px;
+    font-size: 20px;
+}
+.head-2{
+    margin: 30px 0;
+}
+.time-detail{
+    margin: 0 10% 0 ;
+}
+.seat-container{
+    /* height: 110vh; */
+    background-image: url(https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGhlYXRlciUyMHNlYXRzfGVufDB8fDB8fHww);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 2% 0 0 0 ;
+
+}
+.seat-container .left{
+    padding: 1% 0 0 5%;
+    width: 72%;
+    /* background: #283965; */
+    
+}
+.seat-container .right{
+    padding: 10% 0 0 0;
+    width:28% ;
+    /* background-color: #04AA6D;
+     */
+   
+}
+.row-book{
+    margin: 20px 0;
+}
+.row-book label{
+    color: white;
+    font-size: larger;
+}
+.row-book input{
+    height: 4vh;
+    width: 200px;
+}
+.row-book button{
+    height: 6vh;
+    width: 200px;
+    margin-left: 70px;
+    margin-top: 40px;
+    font-size: 18px;
+    color: white;
+    background: red;
+    border: 0;
+
+}
+#price{
+    font-size: 30px;
+    background-color: transparent;
+    color:white;
+    border: 0;
+    font-weight: 800;
+}
+.row-book button:hover{
+    color: white;
+    background: transparent;
+}
+.o{
+    margin-left: 50px;
+}
+.n{
+    margin-left: 10px;
+}
+.e{
+    margin-left: 70px;
+}
+.theater {
+    display: flex;
+    /* grid-template-columns: repeat(15, 50px); /* Adjust the number of columns as needed */
+    /* gap: 10px; */ 
+}
+
+.seat {
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    
+}
+.seat.notavailable{
+    background-color: transparent;
+    cursor: no-drop;
+    color: transparent;
+    border-color: lightgray;
+}
+.seat.available {
+    background-color: transparent;
+    cursor: pointer;
+    color: #bdecb6;
+    border-color: red;
+}
+
+.seat.selected {
+    background-color: #22ff00;
+    color: #fff;
+    
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+#customers tr:hover {background-color: #ddd;}
+  
+#customers th {
+   
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.payment-container{
+    padding: 3% 10%;
+} 
+.payment-h2{
+    margin: 3vh 0;
+}
+.payment-h1{
+    margin :1vh 0 8vh 0
+}
+#rzp-button1{
+    margin: 6vh 5%;
+    height: 7vh;
+    width: 230px;
+    font-size: 18px;
+    border: 0;
+    color: white;
+    background: red;
+
+}
+#rzp-button1:hover{
+    color: black;
+    background: transparent;
+}
+.payment-h1 span{
+    color: gray;
+}
+.clear-seats{
+    height: 6vh;
+    width: 200px;
+    margin-left: 70px;
+    margin-top: 40px;
+    font-size: 18px;
+    color: white;
+    background: red;
+    border: 0;
+}
+.clear-seats:hover {
+    color: white;
+    background: transparent;
+}
+.your-order-container{
+    padding: 4vh 5%;
+}
+.your-order-container h1{
+    margin-bottom: 10vh;
+}
+.your-order-div-for-card{
+    display: flex;
+    margin: 3vh 0;
+    width: 100%;
+    height: 42vh;
+    background: #717171;
+    color: silver;
+    padding: 2vh 30px;
+}
+.your-order-img-container{
+    width: 18%;
+    height: 38vh;
+}
+.your-order-img{
+    width: 100%;
+    height: 100%;
+}
+.your-order-content-container{
+    width: 50%;
+    height: 30vh;
+    margin: 2vh 50px;
+}
+.your-order-content-container a{
+    
+    text-decoration: none;
+    color: black;}
+.ticket-main-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 88vh;
+}
+.ticket-container{
+    background: white;
+    width: 30%;
+    height: 80vh;
+}
+.ticket-img-container{
+    margin-left: 145px;
+    width: 38%;
+    height: 30vh;
+}
+.ticket-img-container img{
+    width: 100%;
+    height: 100%;
+}
+.bookingpage-container{
+    padding: 5vh 5%;
+}
+.booking-page-small{
+    display:flex ;
+    margin: 2vh 5% ;
+    padding:6vh 4% ;
+  
+    height: 15vh;
+    background: #717171;
+    color: silver;
+}
+.select-date{
+    margin-left: 20px;
+    width: 70px;
+    height: 5vh;
+    font-size: 15px; ;
+}
+.col-booking-2{
+    width: 20%;
+    margin: 0 0 0 15%;
+}
+.col-booking-1{
+    width: 30%;
+}
+.col-booking-3{
+    margin: 0 0 0 20%;
+}
+.col-booking-3 a{
+    text-decoration: none;
+    font-size: 20px;
+    color:#0d2d7e;
+    font-weight: bold;
+}
+.col-booking-3 a:hover{
+    text-decoration: underline;
+    color: rgb(0, 0, 5)
+}
+.searched-container{
+    width: 100%;
+    padding: 10vh 30%;
+}
+.searched-container a{
+    
+    text-decoration: none;
+    color: black;
+}
+.searched-container a:hover{
+    text-decoration: underline;
+}
+.searched-box{
+    width: 300px;
+    height: 5vh;
+    background: #717171;
+    text-align: center;
+    margin:30px 0 0 27%;
+    padding: 6px 0 0 0 ;
+    position: relative;
+
+
+}
+.back-btn{
+    width: 120px;
+    height: 5vh;
+    background: #717171;
+    color: white;
+    position: absolute;
+    top: 13vh;
+    right: 5%;
+    font-size: large;
+
+    
+}
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .text {font-size: 11px}
+  }
+  .upcoming-movie{
+    margin: 30px 20px;
+    
+  }

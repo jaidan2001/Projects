@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} {% endblock %} </title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <a href="{% url 'dashboard' %}"><img style="height: 11vh;" src="{% static 'picture/Lazord Sans Serif (1).png' %}" ></a>
+            <!-- <h1>MovieMagnet</h1> -->
+            <!-- <h2>Welcome {{userinfo.name}}</h2> -->
+            <div class="nav-links">
+                 <ul>
+                    <!-- <li><input id="searchbar" style="width: 400px; height: 5vh; border-radius: 5px;" type="search"></li>
+                    <li><button onclick="btn()" id="btn">search</button></li> -->
+                    <!-- <li><a href="">Home</a></li> -->
+                    <!-- <li><a href="">
+                        <select name="city" id="city" class="for-city" >
+                          <option value="thiruvanthapuram">Thiruvanthapuram</option>
+                          <option value="kochi">Kochi</option>
+                          <option value="kollam">Kollam</option>
+                        </select></a></li> -->
+                    {% if userInfo.username %}
+                    <li> <a class="not-clickable" href="">Welcome {{userInfo.username}} </a>  </li>
+                    <li><a href="{% url 'yourorders' %}">Your orders</a></li>
+                    {% endif %}
+                    
+
+                    {% if userInfo.role == 'admin' %}
+                        <li> <a  href="{% url 'admindashboard' %}">back to admin dashboard</a>  </li>
+                    {% endif %}
+                    <li><a href="{% url 'logout' %}">LogOut</a></li>
+                
+                 </ul>
+            </div>
+        </nav>
+        
+    </div>
+
+    {% block template %}
+
+    {% endblock %}
+    
+
+    <script src="https://kit.fontawesome.com/00bd3cc4b5.js" crossorigin="anonymous"></script>
+</body>

@@ -1,0 +1,56 @@
+{% extends 'adminbase.html' %}
+
+{% load static %}
+
+{% block title %} admin - dashboard {% endblock %}
+
+{% block template %}
+
+    <div class="right">
+        <h1>Edit Theater - {{theater}}</h1><br><br>
+        <form action="{% url 'adminedittheater' theater.id %}" method="post">
+            {% csrf_token %}
+            <div class="col-container-movie">
+                <div class="col">
+                  <label class="movie-label" for="name">Name</label><br><br>
+                  <label class="movie-label" for="location">Location</label><br><br>
+                  <label class="movie-label" for="totalseats">Total Seats</label><br><br>
+                  <label class="movie-label" for="price">Price</label><br><br>
+                </div>
+                <div class="col">
+                  <input class="movie-input" name="name" id="name" type="text"><br><br>
+                  <input class="movie-input" name="location" id="location" type="text"><br><br>
+                  <input class="movie-input" name="totalseats" id="totalseats" type="text"><br><br>
+                  <input class="movie-input" name="price" id="price" type="text"><br><br>
+                </div>
+                
+      </div>
+      <div style="display: flex; margin-top: 1vh">
+        <div ><button class="add-user-btn" type="submit">Save</button></div>
+      
+
+        <div class="admin-add-user-btn-back" >
+          <a class="admin-add-user-btn" href="{% url 'adminmanagetheater' %}">back</a>
+        </div>
+        </form>
+    </div>
+    <script>
+        // Wait for the document to be ready
+        $(document).ready(function(){
+        
+          // Add a value to the input field with ID "myInput"
+          $("#name").val("{{ theater.name }}");
+          $("#location").val("{{ theater.location }}");
+          $("#totalseats").val("{{ theater.totalseats }}");
+          $("#price").val("{{ theater.price }}");
+          
+          
+          // Alternatively, you can add a value based on an event, for example, a button click
+          $("#myButton").click(function(){
+            $("#myInput1").val("Button Clicked!");
+            $("#input2").val("New Value 2");
+            $("#input3").val("New Value 3");
+          });
+        });
+      </script>
+{% endblock %}

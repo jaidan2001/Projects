@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Seat Arrangement {% endblock %}
+
+{% block template %}
+    <div class="ticket-main-container">
+        <div class="ticket-container">
+            <h1 style="margin: 10px 0 25px 0; font-size: 30px;text-align: center;"><span style="font-weight: bolder;">{{details.movie_name}}</span>({{details.language}})</h1>
+            <div class="ticket-img-container">
+                <img src="{% static posterimg.poster %}" alt="">
+            </div>
+            <h2 style="margin: 40px 0 15px 0;text-align: center;">{{details.theater_name}},{{location}}</h2>
+            <h2 style="margin: 15px 0 ;text-align: center;">{{details.date}} | {{details.time}}</h2>
+            <h2 style="margin: 15px 0  ;text-align: center;">SeatNumber - {{details.seatnumber}}</h2>
+            <h2 style="margin: 15px 0  ;text-align: center;">TotalSeats - {{details.totalseats}}</h2>
+            <h2 style="margin: 15px 0  ;text-align: center;">Total Price - ₹{{details.price}}</h2>
+
+         </div>
+    </div>
+{% endblock %}

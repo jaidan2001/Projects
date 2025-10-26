@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} booking page {% endblock %}
+{% block template %}
+    <div class="searched-container">
+        {% if search %}
+            <h1 style="text-align: center; ">You are Searched for <span style="color: brown;">{{search}}</span></h1>
+            {% if movies %}
+            {% for movie in movies %}
+                <div class="searched-box">
+                    <a href="{% url 'movieviewpage' movie.name %}"><h2 style="text-align: center;color: silver;">{{movie}}</h2></a>
+                </div>
+                
+            {% endfor %}
+            {% else %}
+            <h2 style="text-align: center; margin-top: 30px;">No Movie Found!</h2>
+            {% endif %}
+        {% else %}
+            <h1 style="text-align: center;">You Forgot to Search</h1>
+        {% endif  %}
+        <a  href="{% url 'dashboard' %}"><button class="back-btn">back</button></a>
+    </div>
+
+{% endblock %}

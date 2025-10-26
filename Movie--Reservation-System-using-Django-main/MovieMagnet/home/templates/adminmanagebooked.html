@@ -1,0 +1,50 @@
+{% extends 'adminbase.html' %}
+
+
+{% load static %}
+
+{% block title %} admin - ManageMovie {% endblock %}
+
+{% block template %}
+
+<div class="right">
+    <h1 style="margin-bottom: 0;">Manage Booking</h1>
+
+    <div>
+        <a href="{% url 'adminaddbooked' %}"><button class="add-user">Add Theater</button></a>
+    </div>
+
+    <div class="table-for-admin-user">
+        <table id="customers">
+        <tr>
+            <th>id</th>
+            <th>Username</th>
+            <th>Moviename</th>
+            <th>Theatername</th>
+            <th>language</th>
+            <th>Time</th>
+            <th>Seatnumber</th>
+            <th>Totalseats</th>
+            <th>Price</th>
+            <th>Date</th>
+        </tr>
+        {% for book in booked %}
+        <tr>
+
+            <td>{{ book.id }}</td> 
+            <td>{{ book.username }}</td>
+            <td>{{ book.movie_name }}</td>
+            <td>{{ book.theater_name }}</td>
+            <td>{{ book.language }}</td>
+            <td>{{ book.time }}</td>
+            <td>{{ book.seatnumber }}</td>
+            <td>{{ book.totalseats }}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ book.date }}</td>
+            <td><a href="{% url 'admindeletebooked' book.id %}"><i class="fa-solid fa-trash" style="color: red;"></i></a></td>
+            
+        </tr>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

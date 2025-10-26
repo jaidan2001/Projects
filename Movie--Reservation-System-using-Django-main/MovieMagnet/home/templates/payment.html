@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Payment {% endblock %}
+
+
+{% block template %}
+
+    <div class="payment-container">
+        <h1 class="payment-h1">Payment Area</h1>
+        <h2 class="payment-h2"><span>Moviename</span> - {{moviename}}</h2>
+        <h2 class="payment-h2"><span>Theatername</span> - {{tname}}</h2>
+        <h2 class="payment-h2"><span>language</span> - {{language}} </h2>
+        <h2 class="payment-h2"><span>Seat Number</span> - {{seatnumbers}}</h2>
+        <h2 class="payment-h2"><span>Movie-time </span>- {{time}} </h2>
+        <h2 class="payment-h2"><span>Date</span> - {{date}}</h2>
+        <h2 class="payment-h2"><span>Time</span> - {{time}}</h2>
+        <h2 class="payment-h2"><span>total Seats</span> - {{numberofseats}} </h2>
+        <h2 class="payment-h2"><span>total price</span> - ₹{{totalprice}} </h2>
+
+    
+        <button type="submit" id="rzp-button1">Click here for payment</button>
+      
+    </div>
+    
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_tlIylwNekuL1h7",
+    "name": "Movie Magnet",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "{{response}}",
+    "handler": function (response){
+        alert("payment Sucesssful");
+        window.location.href = '/paymentsucess/' ;
+
+
+    },
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9496553323"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert("payment error");
+        window.location.href = '/paymenterror/' ;
+        // alert(response.error.code);
+        // alert(response.error.description);
+        // alert(response.error.source);
+        // alert(response.error.step);
+        // alert(response.error.reason);
+        // alert(response.error.metadata.order_id);
+        // alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script
+
+{% endblock %}

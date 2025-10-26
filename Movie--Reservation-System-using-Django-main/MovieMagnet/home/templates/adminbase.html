@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/adminbase.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    
+    <div class="left-container">
+        <a style="text-decoration: none;" href="{% url 'admindashboard' %}"><h1>Admin Dashboard</h1></a>
+        <nav>
+            <ul>
+                <li><a href="{% url 'adminuser' %}">User</a></li>
+                <li><a href="{% url 'adminmanagemovie' %}">Manage Movies</a></li>
+                <li><a href="{% url 'adminmanagetheater' %}">Theaters</a> </li>
+                <li><a href="{% url 'adminmanageshowtime' %}">Show time</a></li>
+                <li><a href="{% url 'adminmanagebooked' %}">Booked</a></li>
+                <li> <a href="{% url 'dashboard' %}">   Back to website</a></li>
+            </ul>
+        </nav>
+
+        <footer>
+            <ul>
+                
+                <li><a href="{% url 'adminlogout' %}">Logout</a></li>
+            </ul>
+        </footer>
+    </div>
+    {% block template %}
+
+    {% endblock %}
+    <script src="https://kit.fontawesome.com/00bd3cc4b5.js" crossorigin="anonymous"></script>
+</body>
+</html>

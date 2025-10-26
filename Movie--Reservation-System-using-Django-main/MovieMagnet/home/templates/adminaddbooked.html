@@ -1,0 +1,24 @@
+{% extends 'adminbase.html' %}
+
+{% load static %}
+
+{% block title %} admin - user {% endblock %}
+
+{% block template %}
+    <div class="right">
+        <h1>Booking</h1><br>
+        <div class="manage-movie-container">
+            <form action="{% url 'adminaddbooked' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %} <br>
+                {{form.as_p}}
+                <div style="display: flex;">
+                    <button class="add-user-btn" type="submit">Add</button>
+                    <div class="admin-add-user-btn-back" >
+                        <a class="admin-add-user-btn" href="{% url 'adminmanagemovie' %}">back</a>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+{% endblock %}

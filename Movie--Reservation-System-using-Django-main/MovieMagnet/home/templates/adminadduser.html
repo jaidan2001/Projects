@@ -1,0 +1,28 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block title %} admin-user create {% endblock %}
+
+{% block template %} 
+
+<div class="right">
+    <h1>Add User</h1>
+    <div class="form-for-add-user">
+        <form action="{% url 'adminadduser' %}" method="post">
+            {% csrf_token %}
+            <label class="label-for-add-user" for="">Username</label>{{ form.username }} <br>
+            <label class="label-for-add-user-1" for="">Email</label>{{ form.email }} <br>
+            <label class="label-for-add-user" for="">Password</label>{{ form.password }} <br>
+            <label class="label-for-add-user-2" for="">Role</label>{{ form.role }} <br><br>
+            <div style="display: flex;">
+                <button class="add-user-btn" type="submit">Add</button>
+                <div class="admin-add-user-btn-back" >
+                    <a class="admin-add-user-btn" href="{% url 'adminuser' %}">back</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

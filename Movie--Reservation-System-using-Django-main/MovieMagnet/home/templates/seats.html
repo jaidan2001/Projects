@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Seat Arrangement {% endblock %}
+
+{% block template %} 
+
+        
+
+    <div class="seat-container">
+        <h1 style="color: white; text-align: center;">{{theater.name}} - ₹<input type="text" value="{{price}}" id="price" readonly disabled ></h1>
+        <div style="display: flex;">
+            <div class="left">
+                <div class="theater">
+            
+                    <form >
+                        {% for seat in booked_seat %}
+                            {% if seat in k %}
+                            <input  placeholder="{{seat}}" class="seat notavailable" readonly disabled>
+                            {% else %}
+                            <input  onclick="bookSeat(this.id)" id="{{ seat }}" placeholder="{{seat}}" name="{{ seat }}" class="seat available" readonly></input>
+                            {% endif %}
+                        {% endfor %}
+                        
+                    </form>
+        
+                    
+                
+            </div>
+            <h2 style="margin: 40px 0 3px 299px;color: white; ">All eyes this way please!</h2>
+            </div>
+            <div class="right">
+                
+                <form action="{% url 'payment' theater.name moviename time %}" method="post">
+                    {% csrf_token %}
+                    <div class="row-book">
+                    <label for="">Seat no</label>
+                    <input class="o" type="text" readonly name="seatnumbers" id="seatnumbers">
+                </div>
+                <div class="row-book">
+                    <label for="">No. of Seats</label>
+                    <input class="n" type="text" readonly name = 'numberofseats' id="numberofseats">
+                </div>
+                <div class="row-book">
+                    <label for="">Price</label>
+                    <input class="e" type="text" readonly name="totalprice" id="totalprice">
+                </div>
+                <div class="row-book">
+                    <button type="submit">Continue Booking</button><br>
+                </div>
+                </form>
+                <button class="clear-seats" onclick="location.reload()">Clear Booked seats</button>
+            </div>
+    
+        </div>
+    </div>
+
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const seats = document.querySelectorAll('.seat');
+
+            seats.forEach(seat => {
+                seat.addEventListener('click', () => {
+                    seat.classList.toggle('selected');
+                });
+            });
+        });
+        function bookSeat(id)
+        {
+        console.log(id);
+        document.getElementById('seatnumbers').value += id+",";
+        
+        // document.getElementById(id).src = "{% static 'booked.png' %}";
+        document.getElementById(id).disabled = true;
+
+        var val = document.getElementById("numberofseats").value;
+        var price = document.getElementById("totalprice").value;
+        var for_one_price = document.getElementById("price").value;
+        if(val)
+        {
+            val = parseInt(val)+1;
+            document.getElementById("numberofseats").value = val;
+        }
+        else{
+            document.getElementById("numberofseats").value = 1;
+        }
+
+        if (price)
+        {
+            price = val * for_one_price
+            document.getElementById("totalprice").value = price;
+        }
+        else{
+            document.getElementById("totalprice").value = for_one_price;
+        }
+
+    }
+    </script>
+
+{% endblock %}

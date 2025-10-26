@@ -1,0 +1,24 @@
+{% extends 'adminbase.html' %}
+
+{% load static %}
+
+{% block title %} admin - dashboard {% endblock %}
+
+{% block template %}
+<div class="right">
+    <div class="base-right-div">
+        <h1 id="changingH1" >Welcome Admin</h1>
+    </div>
+</div>
+
+<script>
+    // JavaScript to change the color at regular intervals
+    setInterval(function() {
+        // Generate a random color
+        var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        
+        // Apply the new color to the h1 tag
+        document.getElementById('changingH1').style.color = randomColor;
+    }, 2000); // Change color every 2000 milliseconds (2 seconds)
+</script>
+{% endblock %}

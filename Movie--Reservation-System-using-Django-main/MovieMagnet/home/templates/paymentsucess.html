@@ -1,0 +1,33 @@
+<head>
+    <style>
+        .center {
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .fas{
+            color: green;
+        }
+        .continue{
+            color: white;
+            background: rgb(27, 148, 27);
+            width: 200px;
+            height: 6vh;
+            border: 0;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <h1>
+            Thanks, You are aweseome! <i class="fas fa-check-circle"></i>
+        </h1>
+        <a href="{% url 'booked' %}"><button class="continue">Continue</button></a>
+    </div> 
+    <script src="https://kit.fontawesome.com/00bd3cc4b5.js" crossorigin="anonymous"></script>
+</body>

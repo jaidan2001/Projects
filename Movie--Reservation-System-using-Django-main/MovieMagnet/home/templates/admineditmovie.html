@@ -1,0 +1,87 @@
+{% extends 'adminbase.html' %}
+
+{% load static %}
+
+{% block title %} admin - dashboard {% endblock %}
+
+{% block template %} 
+
+<div class="right">
+    <h1>Edit Movie - {{ movie.name }}</h1><br>
+
+    <form  action="{% url 'admineditmovie' movie.id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-container-movie">
+          <div class="col">
+            <label class="movie-label" for="poster">Poster</label><br><br>
+            <label class="movie-label" for="trailer">Trailer</label><br><br>
+            <label class="movie-label" for="name">Name</label><br><br>
+            <label class="movie-label" for="description">Description</label><br><br><br><br><br><br><br><br><br><br>
+            <label for="cast" class="movie-label">Cast</label><br><br>
+            <label class="movie-label"  for="language">language</label><br><br>
+            <label class="movie-label" for="releasedate">Realease Date</label><br><br>
+            <label class="movie-label" for="status">Status</label><br><br>
+          </div>
+          <div class="col">
+            <input class="movie-input" type="file" name="poster" id="poster"><br><br>
+            <input class="movie-input" type="text" name="trailer" id="trailer"><br><br>
+            <input class="movie-input" type="text" name="name" id="name"><br><br>
+            <textarea name="description" id="description" cols="30" rows="10" ></textarea><br><br>
+            <input class="movie-input" type="text" name="cast" id="cast"><br><br>
+            <select class="movie-input" name="language" id="language">
+              <option></option>
+              <option value="hindi">Hindi</option>
+              <option value="malayalam">Malayalam</option>
+              <option value="tamil">Tamil</option>
+              <option value="english">English</option>
+          
+            </select><br><br>
+            <input class="movie-input" type="date" name="releasedate" id="releasedate"><br><br>
+            <select class="movie-input" name="status" id="status" >
+              <option></option>
+              <option value="in">In</option>
+              <option value="out">Out</option>
+              <option value="soon">Soon</option>
+          
+            </select>
+          </div>
+        </div>
+        <br>
+        <div style="display: flex; margin-top: 1vh">
+          <div ><button class="add-user-btn" type="submit">Save</button></div>
+        
+
+          <div class="admin-add-user-btn-back" >
+            <a class="admin-add-user-btn" href="{% url 'adminuser' %}">back</a>
+          </div>
+
+        
+    </form>
+    
+
+    
+</div>
+<script>
+    // Wait for the document to be ready
+    $(document).ready(function(){
+    
+      // Add a value to the input field with ID "myInput"
+      $("#name").val("{{ movie.name }}");
+      $("#trailer").val("{{ movie.trailer }}");
+      $("#description").val("{{ movie.description }}");
+      $("#releasedate").val("{{ movie.release_date }}");
+      $("#status").val("{{ movie.status }}");
+      $("#language").val("{{movie.language}}")
+      $("#cast").val("{{movie.cast}}")
+
+      
+      // Alternatively, you can add a value based on an event, for example, a button click
+      $("#myButton").click(function(){
+        $("#myInput1").val("Button Clicked!");
+        $("#input2").val("New Value 2");
+        $("#input3").val("New Value 3");
+      });
+    });
+  </script>
+
+{% endblock %}

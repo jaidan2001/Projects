@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Seat Arrangement {% endblock %}
+
+{% block template %}
+    <div class="your-order-container">
+        <a  href="{% url 'dashboard' %}"><button class="back-btn">back</button></a>
+        <h1>Your Orders</h1>
+        {% for key,value in dict.items %}
+        <div class="your-order-div-for-card">
+            <div class="your-order-img-container">
+                <img class="your-order-img" src="{% static value.poster %}" alt="">
+            </div>
+            <div class="your-order-content-container">
+                <h1 style="margin: 10px 0 25px 0;"><span style="font-weight: bolder;">{{value.movie_name}}</span>({{value.lang}})</h1>
+                <h2 style="margin: 10px 0 ;">{{value.theater_name}},{{value.location}}</h2>
+                <h2 style="margin: 10px 0 ;">{{value.date}} | {{value.time}}</h2>
+                <h2 style="margin: 10px 0 7vh 0 ;">SeatNumber - {{value.seatnumber}}</h2>
+                <a href="{% url 'viewticket' value.id %}"><h2><i class="fa-solid fa-eye"></i> View your Ticket</h2></a>
+            </div>
+
+        </div>
+        {% endfor %} 
+    </div>
+{% endblock %}

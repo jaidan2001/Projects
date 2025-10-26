@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/signup</title>
+    <link rel="stylesheet" href="{% static 'css/login_signup.css' %}">
+</head>
+<body>
+   
+        <div class="" style="position: relative;">
+            <img style="margin-left: 10vh;" src="static/picture/Lazord Sans Serif (3).png">
+            <p style="position: absolute; top: 70%; left: 5%; font-size: larger; color: rgb(0, 0, 0); ">"Grab your popcorn, reserve your seat, and let the <br> reel adventure begin – where every reservation is <br> a ticket to a memorable movie experience!"</p>
+            <div class="login-wrap">
+                <div class="login-html">
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                    <div class="login-form">
+
+
+                        <!-- SIGN IN BLOCK -->
+                        <div class="sign-in-htm">
+                            <form action="{% url 'signin' %}" method="post">
+                                {% csrf_token %}
+                                <div class="group">
+                                    <label for="user" class="label">Username</label>
+                                    <input id="user" type="text" class="input" name="username" required>
+                                </div>
+                                <div class="group">
+                                    <label for="pass" class="label">Password</label>
+                                    <input id="pass" type="password" class="input" data-type="password" name="password" required>
+                                </div>
+                                <!-- <div class="group">
+                                    <input id="check" type="checkbox" class="check" checked>
+                                    <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                                </div> -->
+                                <div class="group">
+                                    <input type="submit" class="button" value="Sign In">
+                                </div>
+                                <div class="hr"></div>
+                                <div class="foot-lnk">
+                                    <a href="">Forgot Password?</a>
+                                </div>
+                            </form>
+                            
+                        </div>
+
+
+                        <!-- SIGN UP BLOCK -->
+                        <div class="sign-up-htm">
+                            <form action="{% url 'signup' %}" method="post">
+                                {% csrf_token %}
+                                <div class="group">
+                                    <label for="user" class="label">Username</label>
+                                    <input id="user" type="text" class="input" name="username" required minlength="2" maxlength="20">
+                                </div>
+                                <div class="group">
+                                    <label for="pass" class="label">Password</label>
+                                    <input id="pass" type="password" class="input" data-type="password" name="password" required minlength="4" maxlength="8">
+                                </div>
+                                <!-- <div class="group">
+                                    <label for="pass" class="label">Repeat Password</label>
+                                    <input id="pass" type="password" class="input" data-type="password">
+                                </div> -->
+                                <div class="group">
+                                    <label for="pass" class="label">Email Address</label>
+                                    <input id="pass" type="email" class="input" name="email" required >
+                                </div>
+                                <div class="group">
+                                    <input type="submit" class="button" value="Sign Up">
+                                </div>
+                                <!-- <div class="cinema">
+                                    <a style="margin-left: 108px" href="">SIGN UP AS CINEMAS </a>
+                                </div> -->
+                                <div class="hr"></div>
+                                <div class="foot-lnk">
+                                    <label for="tab-1">Already Member?</a>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    
+</body>
+</html>

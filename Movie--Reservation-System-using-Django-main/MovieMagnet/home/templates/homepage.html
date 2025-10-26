@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block title %} Home page {% endblock %}
+
+{% block template %}
+
+    <div class="dashboard">
+      <div class="search-bar">
+        <form action="{% url 'searchpage' %}" method="post">
+          {% csrf_token %}
+            <input type="search" class="search_box" placeholder="Search For Movies" name="search">
+            <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
+    <div class="hr"></div>
+
+    <div class="slideshow-container">
+
+      <h1 class="upcoming-movie">Upcoming Movies</h1>
+
+      {% for key, value in data.items %}
+      <div class="mySlides fade">
+        <div class="numbertext">{{value.id}} / {{count}}</div>
+        <p>{{i.text}}</p>
+        <a href="{% url 'movieviewpage' value.text %}"><img class="slide-img" src="{% static value.url %}"/></a>
+        <div class="text">{{value.text}}</div>
+      </div>
+     
+
+      {% endfor %}
+        </div>
+        <br>
+        
+        <div style="text-align: center;" >
+          {% for i in data %}
+          <span class="dot"></span> 
+          {% endfor %}
+        </div>
+        
+        <h1 class="released-movie"> Released Movie</h1>
+        <div class="projects">
+          {% for key,value in in_movie.items %}
+          <div class="project">
+              <a href="{% url 'movieviewpage' value.name %}"><img src="{% static value.url %}" ></a>
+              <div class="layer">
+                  <h1 style="font-size: 26px; text-align: center;">{{value.name}}</h1>
+                  <p style="font-size: 16px; text-align: center; margin-top: 6px;"> {{value.language}} </p>
+                  
+              </div>
+              
+            </div>
+            {% endfor %}
+      </div>
+    </div>
+        
+
+        
+
+        <!------------------- scripts---------------------------------------------------- -->
+        <script>
+        let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+        </script>
+
+{% endblock %}

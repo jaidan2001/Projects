@@ -1,0 +1,75 @@
+{% extends 'adminbase.html' %}
+
+{% load static %}
+
+{% block title %} admin - user {% endblock %}
+
+{% block template %}
+    <div class="right">
+        <h1>Change User- {{user}}</h1><br><br>
+
+        <form  action="{% url 'userinformation' user %}" method="post">
+            {% csrf_token %}
+
+            <div class="col-container-movie">
+              <div class="col">
+                <label class="movie-label" for="myInput1">Username</label><br><br>
+                <label class="movie-label" for="myInput2">Email</label><br><br>
+                <label class="movie-label" for="myInput3">Password</label><br><br>
+                <label class="movie-label" for="myInput1">Role</label><br><br>
+              </div>
+              <div class="col">
+                <input class="movie-input" name="username" type="text" id="myInput1"><br><br>
+                <input class="movie-input" name="email" type="text" id="myInput2"><br><br>
+                <input class="movie-input" name="password" type="text" id="myInput3"><br><br>
+                <select name="role" id='myInput4' class="for-city" >
+              
+                  <option value="admin">admin</option>
+                  <option value="customer">customer</option>
+      
+                </select>
+                
+              </div>
+    </div>
+
+      
+            <br>
+            <div style="display: flex; margin-top: 1vh">
+              <div ><button class="add-user-btn" type="submit">Save</button></div>
+            
+              <div class="admin-add-user-delete-btn" >
+                <a class="admin-add-user-btn" href="{% url 'admindeleteuser' user %}">Delete</a>
+              </div>
+
+              <div class="admin-add-user-btn-back" >
+                <a class="admin-add-user-btn" href="{% url 'adminuser' %}">back</a>
+              </div>
+
+            </div>
+            
+        </form>
+        
+
+        
+    </div>
+    <script>
+        // Wait for the document to be ready
+        $(document).ready(function(){
+        
+          // Add a value to the input field with ID "myInput"
+          $("#myInput1").val("{{ user.username }}");
+          $("#myInput2").val("{{ user.email }}");
+          $("#myInput3").val("{{ user.password }}");
+          $("#myInput4").val("{{ user.role }}");
+
+          
+          // Alternatively, you can add a value based on an event, for example, a button click
+          $("#myButton").click(function(){
+            $("#myInput1").val("Button Clicked!");
+            $("#input2").val("New Value 2");
+            $("#input3").val("New Value 3");
+          });
+        });
+      </script>
+      
+{% endblock %}

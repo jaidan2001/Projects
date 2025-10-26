@@ -1,0 +1,47 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.landing_page, name='landing'),
+    path('signin/', views.signin, name='signin'),
+    path('signup/', views.signup, name='signup'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('logout/', views.logout, name='logout'),
+    path('admincreate/',views.create_admin),
+    path('adminlogin/', views.admin_login, name='adminlogin'),
+    path('admindashboard/', views.admin_dashboard, name='admindashboard'),
+    path('adminlogout/', views.admin_logout,name='adminlogout'),
+    path('adminuser/', views.admin_user, name='adminuser'),
+    path('userinformation/<str:username>/', views.user_information, name='userinformation'),
+    # path('adminchangedusername/', views.admin_changed_user_info, name='adminchangedusername'),
+    path('adminadduser/', views.admin_user_add, name='adminadduser'),
+    path('admindeleteuser/<str:user>/', views.admin_delete_user, name = 'admindeleteuser'),
+    path('adminmanagemovie/', views.admin_manage_movie, name="adminmanagemovie"),
+    path('adminaddmovie/', views.admin_add_movie, name = 'adminaddmovie'),
+    path('admineditmovie/<int:id>/', views.admin_edit_movie, name='admineditmovie'),
+    path('adminmoviedelete/<int:id>/', views.admin_delete_movie, name='adminmoviedelete' ),
+    path('movieviewpage/<str:movie_name>/', views.movie_view_page, name= 'movieviewpage'),
+    path('bookingpage/<str:movie_name>/', views.booking_page, name='bookingpage'),
+    path('seats/<str:name>/<int:price>/<str:moviename>/<str:time>/', views.seats, name='seats'),
+    path('payment/<str:tname>/<str:moviename>/<str:time>/', views.payment, name='payment'),
+    path('paymentsucess/', views.payment_sucess, name='paymentsucess'),
+    path('paymenterror/', views.payment_error, name="paymenterror"),
+    path('adminmanagetheater/', views.admin_manage_theater, name='adminmanagetheater'),
+    path('adminaddtheater/', views.admin_add_theater, name='adminaddtheater'),
+    path('adminedittheater/<int:id>/', views.admin_edit_theater, name ="adminedittheater"),
+    path('admindeletetheater/<int:id>/', views.admin_delete_theater, name="admindeletetheater"),
+    path('booked/', views.booked, name='booked'),
+    path('yourorders/', views.your_order, name='yourorders'),
+    path('viewticket/<int:id>/', views.view_ticket, name='viewticket'),
+    path('searchpage/', views.search_page, name='searchpage'),
+    path('adminmanageshowtime/', views.admin_manage_showtime, name='adminmanageshowtime'),
+    path('adminaddshowtime/', views.admin_add_showtime, name='adminaddshowtime'),
+    path('admineditshowtime/<int:id>/', views.admin_edit_showtime, name ="admineditshowtime"),
+    path('admindeleteshowtime/<int:id>/', views.admin_delete_showtime, name="admindeleteshowtime"),
+    path('adminmanagebooked/', views.admin_manage_booked, name='adminmanagebooked'),
+    path('adminaddbooked/', views.admin_add_booked, name='adminaddbooked'),
+    path('admindeletebooked/<int:id>/', views.admin_delete_booked, name="admindeletebooked"),
+]
+   
+
+

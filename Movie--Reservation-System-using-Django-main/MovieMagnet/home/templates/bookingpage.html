@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} booking page {% endblock %}
+{% block template %}
+
+<div class="bookingpage-container">
+    <div class="head">
+        <h1 class="h1-booking-H" > <span style="font-weight: bold;">{{movie.name}}</span>({{movie.language}}) </h1> 
+    </div>
+    <form action="{% url 'bookingpage' movie.name %}" method="post">
+        {% csrf_token %}
+        <div class="header-today">
+        
+        
+            <label for="date"><h2 style="font-size: 32px;">Select Date - </h2></label>
+
+            <select name="date" id="date">
+            <option></option>
+            <option value="{{tdate}}">{{tdate}}</option>
+            <option value="{{t1date}}">{{t1date}}</option>
+            <option value="{{t2date}}">{{t2date}}</option>
+        
+            </select>
+            <button class="select-date" type="">select</button>
+        
+
+        </div>
+    </form>
+    {% if sdate %}
+    {% for theater in theater_details %}
+        {% for location in theater_location %}
+            {% if movie.id == theater.movie_id %}
+                {% if theater.name_id ==  location.id %}
+
+                                    <!-- <tr><td>{{theater.name}}</td>
+                                    <td>{{theater.time}}</td>
+                                    <td>{{location.location}}</td>
+                                    <td>{{location.price}}</td>
+                                    <td><a href="{% url 'seats' location.name location.price movie.name theater.time %}">Book</a></td></tr> -->
+                    {% if theater.time in final_show_time %}
+                    <div class="booking-page-small">
+                        <div class="col-booking-1">
+                            <h2>{{theater.name}}-{{location.location}}</h2>
+                        </div>
+                        <div class="col-booking-2">
+                            <h3>{{sdate}}|{{theater.time}}</h3>
+                        </div>
+                        <div class="col-booking-3">
+                            <a href="{% url 'seats' location.name location.price movie.name theater.time %}">Book</a>
+                        </div>
+                    </div>   
+                    
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    {% endif %}
+    
+</div>
+<script>
+    var date = document.getElementById("date").value;
+</script>
+       
+{% endblock %}
+
+

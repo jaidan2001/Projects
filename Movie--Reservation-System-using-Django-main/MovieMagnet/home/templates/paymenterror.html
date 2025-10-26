@@ -1,0 +1,33 @@
+<head>
+    <style>
+        .center {
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .fa-solid{
+            color: red;
+        }
+        .continue{
+            color: white;
+            background: red;
+            width: 200px;
+            height: 6vh;
+            border: 0;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <h1>
+            Error Processing Transation <i class="fa-solid fa-circle-xmark"></i>
+        </h1>
+        <a href="{% url 'dashboard' %}"><button class="continue">Continue</button></a>
+    </div> 
+    <script src="https://kit.fontawesome.com/00bd3cc4b5.js" crossorigin="anonymous"></script>
+</body>

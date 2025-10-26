@@ -1,0 +1,45 @@
+{% extends 'adminbase.html' %}
+
+{% load static %}
+
+{% block title %} admin-user {% endblock %}
+
+{% block template %}
+
+   
+  <div class="right">
+    <h1 style="margin-bottom: 0;">User</h1>
+
+        <div>
+            <a href="{% url 'adminadduser' %}"><button class="add-user">Add User</button></a>
+        </div>
+    
+        <div class="table-for-admin-user"><table id="customers">
+            <tr>
+                <th>id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>role</th>
+            </tr>
+            {% for userinfo in userinfos %}
+            <tr>
+                {% if userinfo.username != 'admin' %}
+                <td> {{ userinfo.id }} </td>
+                <td><a class="username-admin-a" href="{% url 'userinformation' userinfo.username %}">{{ userinfo.username }}</a></td>
+                <td> {{ userinfo.email }} </td>
+                <td> {{userinfo.password}} </td>
+                <td> {{userinfo.role}} </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </div>
+
+        
+    
+      
+      
+  </div>
+    
+    
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'adminbase.html' %}
+
+{% load static %}
+
+{% block title %} admin - ManageMovie {% endblock %}
+
+{% block template %}
+    <div class="right">
+        <h1 style="margin-bottom: 0;">Manage Showtime</h1>
+
+        <div>
+            <a href="{% url 'adminaddshowtime' %}"><button class="add-user">Add Showtime</button></a>
+        </div>
+    
+        <div class="table-for-admin-user">
+            <table id="customers">
+            <tr>
+                <th>id</th>
+                <!-- <th>poster</th> -->
+                <th>Theater Name</th>
+                <th>Time</th>
+                <th>movie</th>
+                <th></th>
+            </tr>
+            {% for showtime in showtimes %}
+            <tr>
+        
+                
+                <!-- <td>{{ movieinfo.poster }}</td> -->
+                <td>{{ showtime.id }}</td> 
+                <td><a class="username-admin-a" href="{% url 'admineditshowtime' showtime.id %}">{{ showtime.name }}</a></td>
+                <td> {{ showtime.time }} </td>
+                <td>{{ showtime.movie }}</td>
+                <td><a href="{% url 'admindeleteshowtime' showtime.id %}"><i class="fa-solid fa-trash" style="color: red;"></i></a></td>
+            </tr>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

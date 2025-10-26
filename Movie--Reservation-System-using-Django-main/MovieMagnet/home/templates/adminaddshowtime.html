@@ -1,0 +1,24 @@
+{% extends 'adminbase.html' %}
+
+{% load static %}
+
+{% block title %} admin - ManageMovie {% endblock %}
+
+{% block template %}
+
+    <div class="right">
+        <h1>Add Theater</h1><br><br>
+        <div class="add-theater-container">
+            <form action="{% url 'adminaddshowtime' %}" method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <div style="display:flex ;">
+                    <button class="add-user-btn" type="submit">ADD</button> 
+                    <div class="admin-add-user-btn-back" >
+                        <a class="admin-add-user-btn" href="{% url 'adminmanageshowtime' %}">back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
